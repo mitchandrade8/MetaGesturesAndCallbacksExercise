@@ -9,13 +9,18 @@ import SwiftUI
 
 struct GestureRecognizer: View {
     
-    @State var flag = false
+    @State private var flag = false
     
     var body: some View {
         Text("Tap Me")
             .font(.largeTitle)
+            .foregroundColor(.white)
             .padding(15)
-            .background(flag == false ? Color.green : Color.blue)
+            .background(flag ? Color.teal : Color.blue)
+            .cornerRadius(12)
+            .onTapGesture {
+                flag.toggle()
+            }
     }
 }
 
